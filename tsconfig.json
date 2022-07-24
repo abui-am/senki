@@ -16,12 +16,12 @@
     "incremental": true,
     "noUncheckedIndexedAccess": true
   },
-  "include": [
-    "next-env.d.ts",
-    "next-auth.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "**/*.js"
-  ],
-  "exclude": ["node_modules"]
+  "include": ["next-env.d.ts", "next-auth.d.ts", "**/*.ts", "**/*.tsx", "**/*.js"],
+  "exclude": ["node_modules"],
+
+  /* MODULE PATH ALIAS*/
+  "baseUrl": "./",
+  "paths": {
+    "~/*": ["./src/*"]
+  }
 }

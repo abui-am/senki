@@ -58,3 +58,9 @@ model VerificationToken {
 
     @@unique([identifier, token])
 }
+
+model Participant {
+    id       String @id @default(cuid())
+    fullName String
+    email    String
+}
