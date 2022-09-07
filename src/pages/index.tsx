@@ -15,6 +15,24 @@ type TechnologyCardProps = {
 const Home: NextPage = () => {
   const [qr, setQr] = useState<HTMLCanvasElement[]>([]);
   const hello = trpc.useQuery(['participants.getAll']);
+  const data = [
+    {
+      id: 1,
+      name: 'kangguru',
+    },
+    {
+      id: 2,
+      name: 'hiu',
+    },
+    {
+      id: 3,
+      name: 'ayam',
+    },
+    {
+      id: 4,
+      name: 'unta',
+    },
+  ];
 
   return (
     <>
@@ -25,45 +43,9 @@ const Home: NextPage = () => {
       </Head>
 
       <main className='container mx-auto flex flex-col items-center justify-center h-screen p-4'>
-        <h1 className='text-5xl md:text-[5rem] leading-normal font-extrabold text-gray-700'>
-          Create <span className='text-purple-300'>T3</span> App
-        </h1>
-        <p className='text-2xl text-gray-700'>This stack uses:</p>
-        <div className='grid gap-3 pt-3 mt-3 text-center md:grid-cols-2 lg:w-2/3'>
-          <TechnologyCard
-            name='NextJS'
-            description='The React framework for production'
-            documentation='https://nextjs.org/'
-          />
-          <TechnologyCard
-            name='TypeScript'
-            description='Strongly typed programming language that builds on JavaScript, giving you better tooling at any scale'
-            documentation='https://www.typescriptlang.org/'
-          />
-          <TechnologyCard
-            name='TailwindCSS'
-            description='Rapidly build modern websites without ever leaving your HTML'
-            documentation='https://tailwindcss.com/'
-          />
-          <TechnologyCard
-            name='tRPC'
-            description='End-to-end typesafe APIs made easy'
-            documentation='https://trpc.io/'
-          />
-        </div>
-        <div className='pt-6 text-2xl text-blue-500 flex justify-center items-center w-full'>
-          {hello.data ? (
-            <p>
-              {hello?.data?.map((res) => (
-                <div>
-                  <QRCanvas qrUrl={getQrUrl(res?.id)} />
-                </div>
-              ))}
-            </p>
-          ) : (
-            <p>Loading..</p>
-          )}
-        </div>
+        {data.map((val) => (
+          <div key={val.id}>{val.name}</div>
+        ))}
       </main>
     </>
   );
